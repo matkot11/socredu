@@ -1,5 +1,5 @@
-import "@/styles/globals.scss";
 import "@/styles/variables.scss"
+import "@/styles/globals.scss";
 import type {AppProps} from "next/app";
 import {Montserrat, K2D} from '@next/font/google'
 import classNames from "classnames";
