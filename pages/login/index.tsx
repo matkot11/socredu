@@ -2,7 +2,7 @@ import AuthTemplate from "@/templates/AuthTemplate";
 import styles from "@/styles/login.module.scss";
 import Label from "@/components/label/label";
 import Input from "@/components/input/input";
-import SecondaryButton from "@/components/secondaryButton/SecondaryButton";
+import SecondaryLink from "@/components/secondaryLink/SecondaryLink";
 import Image from "next/image";
 import loginIllustration from "@/assets/illustrations/login-illustration.svg";
 
@@ -29,7 +29,7 @@ const Login = () => {
           <Label label="Password">
             <Input />
           </Label>
-          <SecondaryButton className={styles.button} text="Login" />
+          <SecondaryLink href="/" className={styles.button} text="Login" />
         </form>
       }
     />
