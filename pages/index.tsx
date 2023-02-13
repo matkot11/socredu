@@ -4,6 +4,7 @@ import welcomeIllustration from "@/assets/illustrations/welcome-illustration.svg
 import AuthTemplate from "@/templates/AuthTemplate";
 import PrimaryButton from "@/components/primaryButton/PrimaryButton";
 import SecondaryButton from "@/components/secondaryButton/SecondaryButton";
+import Link from "next/link";
 
 const Welcome = () => (
   <AuthTemplate
@@ -21,7 +22,9 @@ const Welcome = () => (
           WELCOME TO <span className={styles.purple}>SOCREDU</span> YOUR
           TUTORING APP
         </p>
-        <SecondaryButton text="LOGIN" />
+        <Link href="/login" className={styles.link}>
+          <SecondaryButton text="LOGIN" />
+        </Link>
         <PrimaryButton text="CREATE ACCOUNT" />
       </div>
     }

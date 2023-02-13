@@ -6,4 +6,8 @@
   color: $color-purple;
   border: 2px solid $color-light-blue;
   border-radius: 25px;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
 }
