@@ -9,16 +9,16 @@ html {
 }
 
 body {
-  font-family: var(--font-primary);
+  font-family: $font-primary;
   margin: 0;
   padding: 0;
 }
 
 a,
 button {
-  font-family: var(--font-primary);
+  font-family: $font-primary;
   padding: 0;
-  color: var(--color-black);
+  color: $color-black;
   cursor: pointer;
 }
 
@@ -63,6 +63,6 @@ hr {
 
 input,
 textarea {
-  font-family: var(--font-primary);
-  color: var(--color-black);
+  font-family: $font-primary;
+  color: $color-black;
 }
