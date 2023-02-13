@@ -1,10 +1,9 @@
 .button {
-  //margin-bottom: var(--space-32);
-  padding: var(--space-16);
+  padding: $space-16;
   width: 100%;
-  font-size: var(--font-14);
-  font-weight: var(--font-semi-bold);
-  color: var(--color-purple);
-  border: 2px solid var(--color-light-blue);
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+  color: $color-purple;
+  border: 2px solid $color-light-blue;
   border-radius: 25px;
 }

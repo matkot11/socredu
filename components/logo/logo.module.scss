@@ -1,24 +1,24 @@
 .logo {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: var(--font-20);
+  font-family: $font-secondary, sans-serif;
+  font-size: $font-20;
 
-  @media only screen and (min-width: 750px) {
-    font-size: var(--font-40);
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-40;
   }
 }
 
 .color-white {
-  color: var(--color-white);
+  color: $color-white;
 }
 
 .color-black {
-  color: var(--color-black);
+  color: $color-black;
 }
 
 .letter-light-blue {
-  color: var(--color-light-blue);
+  color: $color-light-blue;
 }
 
 .letter-purple {
-  color: var(--color-purple);
+  color: $color-purple;
 }
