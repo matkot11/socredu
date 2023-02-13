@@ -2,19 +2,19 @@ import AuthTemplate from "@/templates/AuthTemplate";
 import styles from "@/styles/auth.module.scss";
 import Label from "@/components/label/label";
 import Input from "@/components/input/input";
-import SecondaryLink from "@/components/secondaryLink/SecondaryLink";
 import Image from "next/image";
-import loginIllustration from "@/assets/illustrations/login-illustration.svg";
+import registerIllustration from "@/assets/illustrations/register-illustration.svg";
+import PrimaryLink from "@/components/primaryLink/PrimaryLink";
 
-const Login = () => {
+const Register = () => {
   return (
     <AuthTemplate
       content={
         <div className={styles.contentWrapper}>
-          <h2 className={styles.title}>WELCOME BACK</h2>
+          <h2 className={styles.title}>NICE TO MEET YOU</h2>
           <Image
             className={styles.image}
-            src={loginIllustration}
+            src={registerIllustration}
             alt="Login illustration"
             priority
           />
@@ -22,18 +22,27 @@ const Login = () => {
       }
       body={
         <form className={styles.form}>
-          <h2 className={styles.formTitle}>LOGIN</h2>
+          <h2 className={styles.formTitle}>CREATE ACCOUNT</h2>
+          <Label label="Full name">
+            <Input />
+          </Label>
+          <Label label="Age">
+            <Input />
+          </Label>
           <Label label="Email">
             <Input />
           </Label>
           <Label label="Password">
             <Input />
           </Label>
-          <SecondaryLink href="/" className={styles.button} text="Login" />
+          <Label label="Repeat password">
+            <Input />
+          </Label>
+          <PrimaryLink href="/" className={styles.button} text="Register" />
         </form>
       }
     />
   );
 };
 
-export default Login;
+export default Register;
