@@ -10,7 +10,7 @@ const Logo = ({ color, letterColor }: LogoProps) => (
   <h1 className={classNames(styles.logo, styles[`color-${color}`])}>
     S
     <span className={classNames(styles.logo, styles[`letter-${letterColor}`])}>
-      0
+      O
     </span>
     CREDU.
   </h1>

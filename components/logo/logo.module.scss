@@ -1,4 +1,8 @@
 .logo {
+  margin: {
+    top: $space-24;
+    left: $space-24;
+  }
   font-family: $font-secondary, sans-serif;
   font-size: $font-20;
 
@@ -16,9 +20,11 @@
 }
 
 .letter-light-blue {
+  margin-left: 0;
   color: $color-light-blue;
 }
 
 .letter-purple {
+  margin-left: 0;
   color: $color-purple;
 }
