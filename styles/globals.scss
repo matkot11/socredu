@@ -2,18 +2,21 @@ html {
   box-sizing: border-box;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-primary);
   margin: 0;
   padding: 0;
 }
 
-a, button {
-  font-family: 'Montserrat', sans-serif;
+a,
+button {
+  font-family: var(--font-primary);
   padding: 0;
   color: var(--color-black);
   cursor: pointer;
@@ -25,6 +28,11 @@ button {
 
   &:focus {
     outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &:active {
+    transform: scale(1.01);
   }
 }
 
@@ -36,7 +44,12 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h5 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h5 {
   margin: 0;
 }
 
@@ -48,7 +61,8 @@ hr {
   margin: 0;
 }
 
-input, textarea {
-  font-family: 'Montserrat', sans-serif;
+input,
+textarea {
+  font-family: var(--font-primary);
   color: var(--color-black);
 }

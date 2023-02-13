@@ -1,19 +1,24 @@
 :root {
   // Colors
-  --color-white: #FFFFFF;
+  --color-white: #ffffff;
   --color-black: #000000;
-  --color-purple: #6459EB;
-  --color-navy: #4E3FE9;
-  --color-light-blue: #A1EDE5;
-  --color-dark-blue: #12253F;
+  --color-purple: #6459eb;
+  --color-navy: #4e3fe9;
+  --color-light-blue: #a1ede5;
+  --color-dark-blue: #12253f;
 
-  //  Font sizes
+  // Font sizes
   --font-14: 0.875rem;
   --font-16: 1rem;
   --font-20: 1.25rem;
   --font-30: 1.875rem;
   --font-40: 2.5rem;
   --font-60: 3.75rem;
+
+  // Font families
+
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "K2D", sans-serif;
 
   // Font weights
   --font-regular: 400;
@@ -25,5 +30,8 @@
   --space-2: 0.125rem;
   --space-4: 0.25rem;
   --space-8: 0.5rem;
-  --space-16: 1rem
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-50: 3.125rem;
 }

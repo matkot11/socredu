@@ -1,0 +1,40 @@
+.image {
+  margin-top: 80px;
+  width: 300px;
+  height: auto;
+  align-self: center;
+
+  @media only screen and (min-width: 750px) {
+    margin-top: auto;
+    width: 400px;
+  }
+
+  @media only screen and (min-width: 1400px) {
+    width: 600px;
+  }
+}
+
+.body {
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-32);
+
+  @media only screen and (min-width: 750px) {
+    height: 100%;
+  }
+}
+
+.welcomeText {
+  margin: var(--space-50) 0;
+  font-size: var(--font-20);
+  font-weight: var(--font-semi-bold);
+  text-align: center;
+}
+
+.purple {
+  color: var(--color-purple);
+}
