@@ -2,7 +2,7 @@ import styles from "@/styles/welcome.module.scss";
 import Image from "next/image";
 import welcomeIllustration from "@/assets/illustrations/welcome-illustration.svg";
 import AuthTemplate from "@/templates/AuthTemplate";
-import PrimaryButton from "@/components/primaryButton/PrimaryButton";
+import PrimaryLink from "@/components/primaryLink/PrimaryLink";
 import SecondaryLink from "@/components/secondaryLink/SecondaryLink";
 
 const Welcome = () => (
@@ -22,7 +22,7 @@ const Welcome = () => (
           TUTORING APP
         </p>
         <SecondaryLink href="/login" text="LOGIN" />
-        <PrimaryButton text="CREATE ACCOUNT" />
+        <PrimaryLink href="/register" text="CREATE ACCOUNT" />
       </div>
     }
   ></AuthTemplate>
