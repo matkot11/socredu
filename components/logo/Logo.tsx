@@ -1,5 +1,6 @@
 import styles from "./logo.module.scss";
 import classNames from "classnames";
+import Link from "next/link";
 
 interface LogoProps {
   color: "white" | "black";
@@ -7,13 +8,13 @@ interface LogoProps {
 }
 
 const Logo = ({ color, letterColor }: LogoProps) => (
-  <h1 className={classNames(styles.logo, styles[`color-${color}`])}>
+  <Link href="/" className={classNames(styles.logo, styles[`color-${color}`])}>
     S
     <span className={classNames(styles.logo, styles[`letter-${letterColor}`])}>
       O
     </span>
     CREDU.
-  </h1>
+  </Link>
 );
 
 export default Logo;

@@ -20,16 +20,16 @@ button {
   padding: 0;
   color: $color-black;
   cursor: pointer;
-}
-
-button {
-  background-color: inherit;
-  border: none;
 
   &:focus {
     outline: none;
     -webkit-tap-highlight-color: transparent;
   }
+}
+
+button {
+  background-color: inherit;
+  border: none;
 
   &:active {
     transform: scale(1.01);
