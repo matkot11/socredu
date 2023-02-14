@@ -1,12 +1,26 @@
 import AuthTemplate from "@/templates/AuthTemplate";
 import styles from "@/styles/auth.module.scss";
 import Label from "@/components/label/label";
-import Input from "@/components/input/input";
 import Image from "next/image";
 import registerIllustration from "@/assets/illustrations/register-illustration.svg";
-import PrimaryLink from "@/components/primaryLink/PrimaryLink";
+import { useFormik } from "formik";
+import PrimaryButton from "@/components/primaryLink/PrimaryButton";
+import Select from "@/components/input/Select";
+import Input from "@/components/input/Input";
 
 const Register = () => {
+  const formik = useFormik({
+    initialValues: {
+      fullName: "",
+      age: "",
+      email: "",
+      password: "",
+      repeatPassword: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   return (
     <AuthTemplate
       content={
@@ -21,24 +35,52 @@ const Register = () => {
         </div>
       }
       body={
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={formik.handleSubmit}>
           <h2 className={styles.formTitle}>CREATE ACCOUNT</h2>
-          <Label label="Full name">
-            <Input />
+          <Label htmlFor="fullName" label="Full name">
+            <Input
+              name="fullName"
+              onChange={formik.handleChange}
+              value={formik.values.fullName}
+            />
           </Label>
-          <Label label="Age">
-            <Input />
+          <Label htmlFor="age" label="Age">
+            <Select
+              name="age"
+              onChange={formik.handleChange}
+              value={formik.values.age}
+            >
+              {Array.from(Array(100).keys()).map((_, index) => (
+                <option value={index} key={index}>
+                  {index}
+                </option>
+              ))}
+            </Select>
           </Label>
-          <Label label="Email">
-            <Input />
+          <Label htmlFor="email" label="Email">
+            <Input
+              name="email"
+              type="email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
           </Label>
-          <Label label="Password">
-            <Input />
+          <Label htmlFor="password" label="Password">
+            <Input
+              name="password"
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
           </Label>
-          <Label label="Repeat password">
-            <Input />
+          <Label htmlFor="repeatPassword" label="Repeat password">
+            <Input
+              name="repeatPassword"
+              onChange={formik.handleChange}
+              value={formik.values.repeatPassword}
+            />
           </Label>
-          <PrimaryLink href="/" className={styles.button} text="Register" />
+          <PrimaryButton className={styles.button} text="Register" />
         </form>
       }
     />

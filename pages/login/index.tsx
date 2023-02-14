@@ -1,12 +1,22 @@
 import AuthTemplate from "@/templates/AuthTemplate";
 import styles from "@/styles/auth.module.scss";
 import Label from "@/components/label/label";
-import Input from "@/components/input/input";
-import SecondaryLink from "@/components/secondaryLink/SecondaryLink";
+import Input from "@/components/input/Input";
 import Image from "next/image";
 import loginIllustration from "@/assets/illustrations/login-illustration.svg";
+import { useFormik } from "formik";
+import SecondaryButton from "@/components/secondaryLink/SecondaryButton";
 
 const Login = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   return (
     <AuthTemplate
       content={
@@ -21,15 +31,29 @@ const Login = () => {
         </div>
       }
       body={
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={formik.handleSubmit}>
           <h2 className={styles.formTitle}>LOGIN</h2>
-          <Label label="Email">
-            <Input />
+          <Label htmlFor="email" label="Email">
+            <Input
+              name="email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              type="email"
+            />
           </Label>
-          <Label label="Password">
-            <Input />
+          <Label htmlFor="password" label="Password">
+            <Input
+              name="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              type="password"
+            />
           </Label>
-          <SecondaryLink href="/" className={styles.button} text="Login" />
+          <SecondaryButton
+            type="submit"
+            className={styles.button}
+            text="Login"
+          />
         </form>
       }
     />

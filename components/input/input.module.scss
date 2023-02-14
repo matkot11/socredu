@@ -1,8 +1,13 @@
 .input {
   padding: $space-16;
-  width: 100%;
   border-radius: 25px;
   border: 1px solid $color-black;
+  font-size: $font-16;
+
+  // Remove arrow from select
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
   &:focus {
     border: 1px solid $color-dark-blue;
