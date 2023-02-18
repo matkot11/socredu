@@ -7,18 +7,46 @@ import { useFormik } from "formik";
 import PrimaryButton from "@/components/primaryLink/PrimaryButton";
 import Select from "@/components/input/Select";
 import Input from "@/components/input/Input";
+import axios from "axios";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Register = () => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
   const formik = useFormik({
     initialValues: {
-      fullName: "",
+      name: "",
       age: "",
       email: "",
       password: "",
       repeatPassword: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      setIsLoading(true);
+      try {
+        await axios.post("/api/auth/register", {
+          ...values,
+        });
+
+        const loginResponse = await signIn("credentials", {
+          redirect: false,
+          email: values.email,
+          password: values.password,
+        });
+
+        if (loginResponse?.error) {
+          console.log(loginResponse.error);
+          return;
+        }
+        await router.replace("/home");
+      } catch (error: any) {
+        console.log(error.response.data.message);
+      } finally {
+        setIsLoading(false);
+      }
     },
   });
   return (
@@ -37,11 +65,11 @@ const Register = () => {
       body={
         <form className={styles.form} onSubmit={formik.handleSubmit}>
           <h2 className={styles.formTitle}>CREATE ACCOUNT</h2>
-          <Label htmlFor="fullName" label="Full name">
+          <Label htmlFor="name" label="Full name">
             <Input
-              name="fullName"
+              name="name"
               onChange={formik.handleChange}
-              value={formik.values.fullName}
+              value={formik.values.name}
             />
           </Label>
           <Label htmlFor="age" label="Age">
@@ -76,11 +104,17 @@ const Register = () => {
           <Label htmlFor="repeatPassword" label="Repeat password">
             <Input
               name="repeatPassword"
+              type="password"
               onChange={formik.handleChange}
               value={formik.values.repeatPassword}
             />
           </Label>
-          <PrimaryButton className={styles.button} text="Register" />
+          <PrimaryButton
+            disabled={isLoading}
+            type="submit"
+            className={styles.button}
+            text="Register"
+          />
         </form>
       }
     />

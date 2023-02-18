@@ -8,4 +8,9 @@
   text-align: center;
   border-radius: 25px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  &:disabled {
+    background-color: $color-dark-blue;
+    cursor: not-allowed;
+  }
 }
