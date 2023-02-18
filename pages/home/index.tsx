@@ -1,14 +1,11 @@
-import { signOut } from "next-auth/react";
+import MainTemplate from "@/templates/mainTemplate/MainTemplate";
 
 const Home = () => {
-  const handleSignOut = async () => {
-    await signOut();
-  };
+
   return (
-    <>
+    <MainTemplate>
       <h1>Home</h1>
-      <button onClick={handleSignOut}>Sign out</button>
-    </>
+    </MainTemplate>
   );
 };
 

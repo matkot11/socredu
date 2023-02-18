@@ -1,7 +1,7 @@
 import styles from "@/styles/welcome.module.scss";
 import Image from "next/image";
 import welcomeIllustration from "@/assets/illustrations/welcome-illustration.svg";
-import AuthTemplate from "@/templates/AuthTemplate";
+import AuthTemplate from "@/templates/authTemplate/AuthTemplate";
 import PrimaryLink from "@/components/primaryLink/PrimaryLink";
 import SecondaryLink from "@/components/secondaryLink/SecondaryLink";
 
