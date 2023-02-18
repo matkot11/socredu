@@ -11,9 +11,11 @@ import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useError } from "@/hooks/useError";
 
 const Register = () => {
   const router = useRouter();
+  const { dispatchError } = useError();
   const [isLoading, setIsLoading] = useState(false);
 
   const formik = useFormik({
@@ -38,12 +40,12 @@ const Register = () => {
         });
 
         if (loginResponse?.error) {
-          console.log(loginResponse.error);
+          dispatchError(loginResponse.error);
           return;
         }
         await router.replace("/home");
       } catch (error: any) {
-        console.log(error.response.data.message);
+        dispatchError(error.response.data.message);
       } finally {
         setIsLoading(false);
       }

@@ -9,10 +9,12 @@ import SecondaryButton from "@/components/secondaryLink/SecondaryButton";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useError } from "@/hooks/useError";
 
 const Login = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const { dispatchError } = useError();
 
   const formik = useFormik({
     initialValues: {
@@ -28,10 +30,12 @@ const Login = () => {
       });
 
       if (loginResponse?.error) {
-        console.log(loginResponse.error);
+        dispatchError(loginResponse.error);
+        setIsLoading(false);
         return;
       }
 
+      setIsLoading(false);
       await router.replace("/home");
     },
   });
