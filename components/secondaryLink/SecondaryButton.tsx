@@ -2,13 +2,19 @@ import styles from "./secondaryLink.module.scss";
 import classNames from "classnames";
 
 interface SecondaryButtonProps {
-  type?: "submit" | "reset" | "button" | undefined;
+  type?: "submit" | "reset" | "button";
   text: string;
   className?: string;
+  disabled?: boolean;
 }
 
-const SecondaryButton = ({ type, text, className }: SecondaryButtonProps) => (
-  <button type={type} className={classNames(styles.button, className)}>
+const SecondaryButton = ({
+  type = "button",
+  text,
+  className,
+  disabled = false,
+}: SecondaryButtonProps) => (
+  <button disabled={disabled} type={type} className={classNames(styles.button, className)}>
     {text}
   </button>
 );
