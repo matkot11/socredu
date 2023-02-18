@@ -1,11 +1,8 @@
 .logo {
-  margin: {
-    top: $space-24;
-    left: $space-24;
-  }
   width: max-content;
   font-family: $font-secondary, sans-serif;
   font-size: $font-20;
+  font-weight: $font-semi-bold;
 
   @media only screen and (min-width: $media-tablet) {
     font-size: $font-40;

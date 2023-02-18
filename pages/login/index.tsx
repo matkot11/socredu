@@ -1,4 +1,4 @@
-import AuthTemplate from "@/templates/AuthTemplate";
+import AuthTemplate from "@/templates/authTemplate/AuthTemplate";
 import styles from "@/styles/auth.module.scss";
 import Label from "@/components/label/label";
 import Input from "@/components/input/Input";
