@@ -21,7 +21,7 @@ const MainTemplate = ({ content, body }: MainTemplateProps) => {
         <Navigation />
       </div>
       <div>{content}</div>
-      {body}
+      <div className={styles.body}>{body}</div>
       <Footer />
       {error && <ErrorMessage text={error} />}
     </div>
