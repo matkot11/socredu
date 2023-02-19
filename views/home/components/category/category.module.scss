@@ -1,0 +1,45 @@
+.wrapper {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-8;
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+  border-radius: 20px;
+  flex-shrink: 0;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 250px;
+    height: 200px;
+    font-size: $font-16;
+    gap: $space-14;
+  }
+}
+
+.image {
+  width: 55px;
+  height: 55px;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.math {
+  background-color: #ff8f6e;
+  color: $color-dark-blue;
+}
+
+.biology {
+  background-color: $color-purple;
+  color: $color-light-blue;
+}
+
+.english {
+  background-color: $color-light-blue;
+  color: $color-navy;
+}

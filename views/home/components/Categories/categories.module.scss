@@ -1,0 +1,27 @@
+.header {
+  padding: $space-24;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: $font-16;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-20;
+  }
+}
+
+.categories {
+  padding: {
+    top: $space-16;
+    bottom: $space-16;
+    left: $space-24;
+  }
+  display: flex;
+  gap: $space-24;
+  overflow-y: hidden;
+
+  @media only screen and (min-width: $media-tablet) {
+    gap: 60px;
+  }
+}

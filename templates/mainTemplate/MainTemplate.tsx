@@ -8,10 +8,10 @@ import Footer from "@/components/footer/Footer";
 
 interface MainTemplateProps {
   content: ReactNode;
-  body: ReactNode;
+  children: ReactNode;
 }
 
-const MainTemplate = ({ content, body }: MainTemplateProps) => {
+const MainTemplate = ({ content, children }: MainTemplateProps) => {
   const { error } = useError();
 
   return (
@@ -21,7 +21,7 @@ const MainTemplate = ({ content, body }: MainTemplateProps) => {
         <Navigation />
       </div>
       <div>{content}</div>
-      <div className={styles.body}>{body}</div>
+      <div className={styles.body}>{children}</div>
       <Footer />
       {error && <ErrorMessage text={error} />}
     </div>
