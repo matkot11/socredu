@@ -7,10 +7,11 @@ import Navigation from "@/components/navigation/Navigation";
 import Footer from "@/components/footer/Footer";
 
 interface MainTemplateProps {
-  children: ReactNode;
+  content: ReactNode;
+  body: ReactNode;
 }
 
-const MainTemplate = ({ children }: MainTemplateProps) => {
+const MainTemplate = ({ content, body }: MainTemplateProps) => {
   const { error } = useError();
 
   return (
@@ -19,7 +20,8 @@ const MainTemplate = ({ children }: MainTemplateProps) => {
         <Logo color="black" letterColor="purple" />
         <Navigation />
       </div>
-      <div>{children}</div>
+      <div>{content}</div>
+      {body}
       <Footer />
       {error && <ErrorMessage text={error} />}
     </div>
