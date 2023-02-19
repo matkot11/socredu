@@ -1,9 +1,13 @@
 .header {
-  padding: $space-24;
+  padding: {
+    top: $space-24;
+    bottom: $space-8;
+    left: $space-24;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: $font-16;
+  font-size: $font-18;
   font-weight: $font-semi-bold;
 
   @media only screen and (min-width: $media-tablet) {
