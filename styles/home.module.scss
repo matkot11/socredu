@@ -1,0 +1,96 @@
+.content {
+  padding: $space-24;
+}
+
+.heroWrapper {
+  @media only screen and (min-width: $media-tablet) {
+    margin-bottom: $space-50;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contentImage {
+  display: none;
+
+  @media only screen and (min-width: $media-tablet) {
+    margin-right: $space-24;
+    display: block;
+    width: 400px;
+    height: auto;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 600px;
+  }
+}
+
+.contentTextWrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: $media-tablet) {
+    margin-top: $space-40;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    margin-top: $space-50;
+  }
+}
+
+.contentHeader {
+  margin-bottom: $space-24;
+  color: $color-navy;
+  font-size: $font-20;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-30;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    font-size: $font-40;
+  }
+}
+
+.contentParagraph {
+  display: none;
+
+  @media only screen and (min-width: $media-tablet) {
+    display: block;
+    max-width: 450px;
+    font-weight: $font-semi-bold;
+    font-size: $font-20;
+  }
+}
+
+.contentParagraphPurple {
+  color: $color-purple;
+}
+
+.contentInputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 60%;
+  }
+}
+
+.contentInput {
+  padding-right: $space-40;
+}
+
+.contentSearch {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+}
