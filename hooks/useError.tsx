@@ -22,9 +22,9 @@ export const ErrorProvider = ({ children }: ErrorProps) => {
 
   const dispatchError = useCallback((message: string) => {
     setError(message);
-    // setTimeout(() => {
-    //   setError("");
-    // }, 5000);
+    setTimeout(() => {
+      setError("");
+    }, 5000);
   }, []);
 
   return (

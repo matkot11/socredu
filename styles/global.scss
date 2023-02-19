@@ -25,15 +25,16 @@ button {
     outline: none;
     -webkit-tap-highlight-color: transparent;
   }
+
+  &:active {
+    transform: scale(1.01);
+    transition: all 0.3s;
+  }
 }
 
 button {
   background-color: inherit;
   border: none;
-
-  &:active {
-    transform: scale(1.01);
-  }
 }
 
 a {
