@@ -10,6 +10,8 @@ async function dbConnect() {
   }
 
   mongoose.set("strictQuery", false);
+  mongoose.set("strictPopulate", false);
+
   const db = await mongoose.connect(process.env.DB_URI);
 
   connection.isConnected = db.connections[0].readyState;

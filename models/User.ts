@@ -17,10 +17,14 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+    required: true,
+  },
   teacher: {
     type: Boolean,
     default: false,
   },
 });
 
-export default models.Users || model("Users", UserSchema);
+export default models.User || model("User", UserSchema);

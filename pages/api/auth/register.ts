@@ -50,6 +50,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     age,
     email,
     password: hashedPassword,
+    image:
+      "https://res.cloudinary.com/dlyqh2gvy/image/upload/v1676912589/default_mjfaai.svg",
   });
 
   res.status(200).json({ message: "Successfully registered" });
