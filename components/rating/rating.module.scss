@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.star {
+  width: 12px;
+}
+
+.text {
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-20;
+  }
+}
