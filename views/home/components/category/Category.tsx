@@ -10,8 +10,11 @@ interface CategoryProps {
 
 const Category = ({ name, icon }: CategoryProps) => (
   <Link
-    href={`/home/${name.toLowerCase()}`}
-    className={classNames(styles.wrapper, styles[name.toLowerCase()])}
+    href={`/home/${name.replace(/\s+/g, "").toLowerCase()}`}
+    className={classNames(
+      styles.wrapper,
+      styles[name.replace(/\s+/g, "").toLowerCase()],
+    )}
   >
     <Image className={styles.image} src={icon} alt={name} />
     <span>{name}</span>

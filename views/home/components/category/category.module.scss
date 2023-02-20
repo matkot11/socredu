@@ -8,6 +8,7 @@
   gap: $space-8;
   font-size: $font-14;
   font-weight: $font-semi-bold;
+  color: $color-dark-blue;
   border-radius: 20px;
   flex-shrink: 0;
 
@@ -33,17 +34,66 @@
   }
 }
 
+.english {
+  background-color: $color-light-blue;
+}
+
+.art {
+  background-color: #ed5665;
+}
+
 .math {
   background-color: #ff8f6e;
-  color: $color-dark-blue;
+}
+
+.history {
+  background-color: #91dafa;
+}
+
+.drama {
+  background-color: #ffc839;
 }
 
 .biology {
-  background-color: $color-purple;
-  color: $color-light-blue;
+  background-color: $color-light-blue;
 }
 
-.english {
-  background-color: $color-light-blue;
-  color: $color-navy;
+.geography {
+  background-color: #e08a68;
+}
+
+.socialstudies {
+  background-color: #58efc7;
+}
+
+.chemistry {
+  background-color: #f7d360;
+}
+
+.foreignlanguages {
+  background-color: #abd641;
+}
+
+.graphicdesign {
+  background-color: #ff4fb8;
+}
+
+.physics {
+  background-color: #de856f;
+}
+
+.philosophy {
+  background-color: #ff826e;
+}
+
+.literature {
+  background-color: #6e9eff;
+}
+
+.it {
+  background-color: #ffac5a;
+}
+
+.music {
+  background-color: #e27c48;
 }
