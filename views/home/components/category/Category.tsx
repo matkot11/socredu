@@ -4,20 +4,18 @@ import classNames from "classnames";
 import Link from "next/link";
 
 interface CategoryProps {
+  display: string;
   name: string;
   icon: string;
 }
 
-const Category = ({ name, icon }: CategoryProps) => (
+const Category = ({ display, name, icon }: CategoryProps) => (
   <Link
-    href={`/home/${name.replace(/\s+/g, "").toLowerCase()}`}
-    className={classNames(
-      styles.wrapper,
-      styles[name.replace(/\s+/g, "").toLowerCase()],
-    )}
+    href={`/home/${name}`}
+    className={classNames(styles.wrapper, styles[name])}
   >
     <Image className={styles.image} src={icon} alt={name} quality={100} />
-    <span className={styles.title}>{name}</span>
+    <span className={styles.title}>{display}</span>
   </Link>
 );
 

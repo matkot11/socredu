@@ -1,13 +1,14 @@
 import styles from "./categories.module.scss";
 import Category from "@/views/home/components/category/Category";
 import { categories } from "@/views/home/data/categories";
+import Header from "@/components/header/Header";
 
 const Categories = () => (
   <div>
-    <span className={styles.header}>Categories</span>
+    <Header text="Categories" />
     <div className={styles.categories}>
-      {categories.map(({ id, name, icon }) => (
-        <Category key={id} name={name} icon={icon} />
+      {categories.map(({ id, display, name, icon }) => (
+        <Category key={id} display={display} name={name} icon={icon} />
       ))}
     </div>
   </div>

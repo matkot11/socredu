@@ -1,0 +1,26 @@
+.contentInputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 60%;
+  }
+}
+
+.contentInput {
+  padding-right: $space-40;
+}
+
+.contentSearch {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+}

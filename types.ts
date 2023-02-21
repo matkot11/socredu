@@ -1,8 +1,3 @@
-interface subjectInterface {
-  name: string;
-  category: string;
-}
-
 export interface TeacherInterface {
   id: string;
   name: string;
@@ -10,5 +5,5 @@ export interface TeacherInterface {
   about: string;
   rating: number;
   price: number;
-  subjects: subjectInterface[];
+  categories: string[];
 }

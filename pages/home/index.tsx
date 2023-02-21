@@ -1,5 +1,4 @@
 import MainTemplate from "@/templates/mainTemplate/MainTemplate";
-import { useState } from "react";
 import Categories from "@/views/home/components/categories/Categories";
 import HomeContent from "@/views/home/components/homeContent/HomeContent";
 import MostPopularTeachers from "@/views/home/components/mostPopularTeachers/MostPopularTeachers";
@@ -13,11 +12,8 @@ interface HomeProps {
 }
 
 const Home = ({ mostPopularTeachers }: HomeProps) => {
-  const [search, setSearch] = useState("");
   return (
-    <MainTemplate
-      content={<HomeContent search={search} setSearch={setSearch} />}
-    >
+    <MainTemplate content={<HomeContent />}>
       <Categories />
       <MostPopularTeachers teachers={mostPopularTeachers} />
     </MainTemplate>
@@ -41,12 +37,7 @@ export const getServerSideProps = async () => {
         about: teacher.about,
         rating: teacher.rating,
         price: teacher.price,
-        subjects: teacher.subjects.map(
-          (subject: { name: string; category: string }) => ({
-            name: subject.name,
-            category: subject.category,
-          }),
-        ),
+        categories: teacher.categories,
       })),
       revalidate: 3600,
     },

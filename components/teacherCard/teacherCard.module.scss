@@ -7,10 +7,6 @@
   border-radius: 20px;
   flex-shrink: 0;
 
-  &:last-child {
-    margin-right: $space-24;
-  }
-
   @media only screen and (min-width: $media-tablet) {
     width: 420px;
     height: 200px;
