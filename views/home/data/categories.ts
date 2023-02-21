@@ -18,24 +18,40 @@ import musicIcon from "../icons/music.svg";
 interface Category {
   id: number;
   name: string;
+  display: string;
   icon: string;
 }
 
 export const categories: Category[] = [
-  { id: 1, name: "English", icon: englishIcon },
-  { id: 2, name: "Art", icon: artIcon },
-  { id: 3, name: "Math", icon: mathIcon },
-  { id: 4, name: "History", icon: historyIcon },
-  { id: 5, name: "Drama", icon: dramaIcon },
-  { id: 6, name: "Biology", icon: biologyIcon },
-  { id: 7, name: "Geography", icon: geographyIcon },
-  { id: 8, name: "Social Studies", icon: socialStudiesIcon },
-  { id: 9, name: "Chemistry", icon: chemistryIcon },
-  { id: 10, name: "Foreign Languages", icon: languagesIcon },
-  { id: 11, name: "Graphic Design", icon: designIcon },
-  { id: 12, name: "Physics", icon: physicsIcon },
-  { id: 13, name: "Philosophy", icon: philosophyIcon },
-  { id: 14, name: "Literature", icon: literatureIcon },
-  { id: 15, name: "IT", icon: itIcon },
-  { id: 16, name: "Music", icon: musicIcon },
+  { id: 1, name: "english", display: "English", icon: englishIcon },
+  { id: 2, name: "art", display: "Art", icon: artIcon },
+  { id: 3, name: "math", display: "Math", icon: mathIcon },
+  { id: 4, name: "history", display: "History", icon: historyIcon },
+  { id: 5, name: "drama", display: "Drama", icon: dramaIcon },
+  { id: 6, name: "biology", display: "Biology", icon: biologyIcon },
+  { id: 7, name: "geography", display: "Geography", icon: geographyIcon },
+  {
+    id: 8,
+    name: "socialStudies",
+    display: "Social Studies",
+    icon: socialStudiesIcon,
+  },
+  { id: 9, name: "chemistry", display: "Chemistry", icon: chemistryIcon },
+  {
+    id: 10,
+    name: "foreignLanguages",
+    display: "Foreign Languages",
+    icon: languagesIcon,
+  },
+  {
+    id: 11,
+    name: "graphicDesign",
+    display: "Graphic Design",
+    icon: designIcon,
+  },
+  { id: 12, name: "physics", display: "Physics", icon: physicsIcon },
+  { id: 13, name: "philosophy", display: "Philosophy", icon: philosophyIcon },
+  { id: 14, name: "literature", display: "Literature", icon: literatureIcon },
+  { id: 15, name: "it", display: "IT", icon: itIcon },
+  { id: 16, name: "music", display: "Music", icon: musicIcon },
 ];

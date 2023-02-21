@@ -5,19 +5,21 @@ import { useError } from "@/hooks/useError";
 import Logo from "@/components/logo/Logo";
 import Navigation from "@/components/navigation/Navigation";
 import Footer from "@/components/footer/Footer";
+import classNames from "classnames";
 
 interface MainTemplateProps {
   content: ReactNode;
   children: ReactNode;
+  color?: "purple" | "";
 }
 
-const MainTemplate = ({ content, children }: MainTemplateProps) => {
+const MainTemplate = ({ content, children, color = "" }: MainTemplateProps) => {
   const { error } = useError();
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.navbar}>
-        <Logo color="black" letterColor="purple" />
+      <div className={classNames(styles.navbar, styles[color] || "")}>
+        <Logo color="black" letterColor={color ? "light-blue" : "purple"} />
         <Navigation />
       </div>
       <div>{content}</div>

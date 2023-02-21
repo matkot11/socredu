@@ -2,23 +2,6 @@
   margin-bottom: $space-50;
 }
 
-.header {
-  padding: {
-    top: $space-24;
-    bottom: $space-8;
-    left: $space-24;
-  }
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: $font-18;
-  font-weight: $font-semi-bold;
-
-  @media only screen and (min-width: $media-tablet) {
-    font-size: $font-20;
-  }
-}
-
 .teachersWrapper {
   padding: {
     top: $space-16;

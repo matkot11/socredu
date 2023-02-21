@@ -1,15 +1,9 @@
 import styles from "./homeContent.module.scss";
 import Image from "next/image";
 import heroIllustration from "@/assets/illustrations/hero-illustration.svg";
-import Input from "@/components/input/Input";
-import Search from "@/assets/icons/Search";
+import Search from "@/components/search/Search";
 
-interface HomeContentProps {
-  search: string;
-  setSearch: (value: string) => void;
-}
-
-const HomeContent = ({ search, setSearch }: HomeContentProps) => (
+const HomeContent = () => (
   <div className={styles.content}>
     <div className={styles.heroWrapper}>
       <Image
@@ -28,16 +22,7 @@ const HomeContent = ({ search, setSearch }: HomeContentProps) => (
         </p>
       </div>
     </div>
-    <div className={styles.contentInputWrapper}>
-      <Input
-        placeholder="Search for lesson"
-        name="search"
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-        className={styles.contentInput}
-      />
-      <Search className={styles.contentSearch} />
-    </div>
+    <Search />
   </div>
 );
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Star from "@/assets/icons/Star.svg";
 
 interface RatingProps {
-  rating: number;
+  rating: string;
 }
 
 const Rating = ({ rating }: RatingProps) => (

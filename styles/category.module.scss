@@ -1,0 +1,27 @@
+.contentWrapper {
+  padding: {
+    top: $space-24;
+    left: $space-24;
+    right: $space-24;
+    bottom: $space-40;
+  }
+  background-color: $color-purple;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.teachersWrapper {
+  padding: {
+    top: $space-16;
+    bottom: $space-32;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: $space-32;
+
+  @media only screen and (min-width: $media-tablet) {
+    gap: $space-50;
+  }
+}

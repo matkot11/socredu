@@ -18,18 +18,7 @@ const teacherSchema = new Schema({
     type: Number,
     required: true,
   },
-  subjects: [
-    {
-      name: {
-        type: String,
-        required: true,
-      },
-      category: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  categories: [String],
 });
 
 export default models.Teacher || model("Teacher", teacherSchema);

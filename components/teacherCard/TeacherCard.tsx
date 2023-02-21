@@ -3,30 +3,23 @@ import { TeacherInterface } from "@/types";
 import Image from "next/image";
 import Rating from "@/components/rating/Rating";
 import Link from "next/link";
+import { categories } from "@/views/home/data/categories";
 
 interface TeacherCardProps {
   teacher: TeacherInterface;
 }
 
 const TeacherCard = ({ teacher }: TeacherCardProps) => {
-  const getCategories = () => {
-    const categoriesSet = new Set();
-    for (const subject of teacher.subjects) {
-      categoriesSet.add(
-        subject.category.charAt(0).toUpperCase() + subject.category.slice(1),
-      );
-    }
+  const getCategoryObject = (categoryName: string) => {
+    return categories.find(({ name }) => name === categoryName);
+  };
+  const getCategories = (): string => {
+    if (teacher.categories.length > 1)
+      return `${getCategoryObject(teacher.categories[0])?.display}, ${
+        getCategoryObject(teacher.categories[1])?.display
+      }...`;
 
-    if (
-      categoriesSet.size > 1 &&
-      `${Array.from(categoriesSet).slice(0, 2).join(", ")}...`.length > 13
-    )
-      return `${Array.from(categoriesSet).slice(0, 2).join(", ")}...`;
-
-    if (categoriesSet.size > 1)
-      return `${Array.from(categoriesSet).slice(0, 2).join(", ")}...`;
-
-    return categoriesSet.values().next().value;
+    return getCategoryObject(teacher.categories[0])?.display || "";
   };
 
   const getShortenText = (text: string) => {
@@ -45,8 +38,10 @@ const TeacherCard = ({ teacher }: TeacherCardProps) => {
         />
       </div>
       <div className={styles.textWrapper}>
-        <span className={styles.categories}>{getCategories()}</span>
-        <Rating rating={teacher.rating} />
+        <span className={styles.categories}>
+          {getShortenText(getCategories())}
+        </span>
+        <Rating rating={teacher.rating.toFixed(1)} />
         <span className={styles.name}>{getShortenText(teacher.name)}</span>
         <span className={styles.price}>£{teacher.price}/h</span>
       </div>
