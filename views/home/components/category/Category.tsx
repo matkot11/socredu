@@ -16,8 +16,8 @@ const Category = ({ name, icon }: CategoryProps) => (
       styles[name.replace(/\s+/g, "").toLowerCase()],
     )}
   >
-    <Image className={styles.image} src={icon} alt={name} />
-    <span>{name}</span>
+    <Image className={styles.image} src={icon} alt={name} quality={100} />
+    <span className={styles.title}>{name}</span>
   </Link>
 );
 
