@@ -8,7 +8,7 @@ import Footer from "@/components/footer/Footer";
 import classNames from "classnames";
 
 interface MainTemplateProps {
-  content: ReactNode;
+  content?: ReactNode;
   children: ReactNode;
   color?: "purple" | "";
 }

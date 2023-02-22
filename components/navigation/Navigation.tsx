@@ -1,7 +1,6 @@
 import styles from "./navigation.module.scss";
 import Menu from "@/assets/icons/Menu";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
 import { useState } from "react";
 import Close from "@/assets/icons/Close";
 import { useRouter } from "next/router";
@@ -10,9 +9,7 @@ import classNames from "classnames";
 const Navigation = () => {
   const router = useRouter();
   const [isOpenNavigation, setIsOpenNavigation] = useState(false);
-  const handleSignOut = async () => {
-    await signOut();
-  };
+
   return (
     <>
       <button
@@ -27,9 +24,7 @@ const Navigation = () => {
           isOpenNavigation && styles.openNavigation,
         )}
       >
-        <nav
-          className={styles.navigationWrapper}
-        >
+        <nav className={styles.navigationWrapper}>
           <button
             onClick={() => setIsOpenNavigation(false)}
             className={styles.closeButton}
@@ -55,14 +50,13 @@ const Navigation = () => {
             </li>
             <li>
               <Link
-                className={router.pathname == "/" ? styles.activeLink : ""}
-                href="/"
+                className={
+                  router.pathname == "/profile" ? styles.activeLink : ""
+                }
+                href="/profile"
               >
                 Profile
               </Link>
-            </li>
-            <li>
-              <a onClick={handleSignOut}>Logout</a>
             </li>
           </ul>
         </nav>

@@ -1,0 +1,55 @@
+.wrapper {
+  padding-bottom: $space-14;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-dark-blue;
+}
+
+.infoWrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-16;
+}
+
+.imageWrapper {
+  width: 64px;
+  height: 64px;
+  position: relative;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.name {
+  font-size: $font-14;
+  font-weight: $font-medium;
+  color: $color-dark-blue;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.info {
+  font-size: $font-12;
+  color: $color-dark-blue;
+}
+
+.icon {
+  margin-right: $space-2;
+  width: 24px;
+}
