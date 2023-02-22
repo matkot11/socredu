@@ -49,7 +49,8 @@ export default NextAuth({
         }
 
         return {
-          name: user._id.toString(),
+          name: user.name,
+          image: user.image,
         };
       },
     }),

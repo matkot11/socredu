@@ -6,12 +6,29 @@ import DbConnect from "@/utils/dbConnect";
 import Teacher from "@/models/Teacher";
 import User from "@/models/User";
 import { TeacherInterface } from "@/types";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setUserState } from "@/store/userSlice";
+import { useSession } from "next-auth/react";
 
 interface HomeProps {
   mostPopularTeachers: TeacherInterface[];
 }
 
 const Home = ({ mostPopularTeachers }: HomeProps) => {
+  const session = useSession();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (session.data) {
+      dispatch(
+        setUserState({
+          name: session.data.user?.name,
+          image: session.data.user?.image,
+        }),
+      );
+    }
+  }, [session, dispatch]);
   return (
     <MainTemplate content={<HomeContent />}>
       <Categories />
