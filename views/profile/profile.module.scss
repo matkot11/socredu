@@ -1,0 +1,74 @@
+.wrapper {
+  padding: $space-24;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: $media-tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+.leftWrapper {
+  @media only screen and (min-width: $media-tablet) {
+    width: 40%;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 30%;
+  }
+}
+
+.headerWrapper {
+  margin-bottom: $space-50;
+}
+
+.header {
+  margin-bottom: $space-8;
+  font-size: $font-20;
+  font-weight: $font-semi-bold;
+  color: $color-purple;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-30;
+  }
+}
+
+.subheader {
+  font-size: $font-14;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.heading {
+  margin: $space-32 0;
+  font-size: $font-16;
+  font-weight: $font-semi-bold;
+  color: $color-purple;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-20;
+  }
+}
+
+.icon {
+  width: 18px;
+}
+
+.illustration {
+  margin-top: $space-50;
+  align-self: center;
+  width: 170px;
+  height: 100%;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 300px;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 500px;
+  }
+}

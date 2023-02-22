@@ -1,0 +1,27 @@
+.wrapper {
+  padding: $space-14 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-dark-blue;
+  width: 100%;
+}
+
+.leftWrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-8;
+}
+
+.text {
+  font-size: $font-14;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.icon {
+  margin-right: $space-2;
+  width: 24px;
+}
