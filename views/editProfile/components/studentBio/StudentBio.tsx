@@ -1,17 +1,12 @@
 import styles from "./studentBio.module.scss";
-import Label from "@/components/label/label";
-import Input from "@/components/input/Input";
 import { useFormik } from "formik";
-import Image from "next/image";
-import Trash from "@/assets/icons/Trash";
-import Textarea from "@/components/textarea/Textarea";
 import SaveButton from "@/views/editProfile/components/editButton/SaveButton";
 import { useState } from "react";
-import FileInput from "@/views/editProfile/components/fileInput/FileInput";
 import { useError } from "@/hooks/useError";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Bio from "@/views/editProfile/components/bio/Bio";
 
 interface StudentBioProps {
   image: string;
@@ -63,54 +58,15 @@ const StudentBio = ({ image, about }: StudentBioProps) => {
   });
   return (
     <form onSubmit={formik.handleSubmit} className={styles.wrapper}>
-      <Label htmlFor="fullName" label="Full Name">
-        <Input
-          name="fullName"
-          onChange={formik.handleChange}
-          value={formik.values.fullName}
-        />
-      </Label>
-      <div className={styles.imageChangeWrapper}>
-        <div className={styles.imageBorderWrapper}>
-          <div className={styles.imageWrapper}>
-            <Image
-              className={styles.image}
-              src={
-                isImageDeleted
-                  ? "https://res.cloudinary.com/dlyqh2gvy/image/upload/v1676912589/default_mjfaai.svg"
-                  : selectedFile.size > 0
-                  ? URL.createObjectURL(selectedFile)
-                  : image
-              }
-              alt="Updated image"
-              fill
-            />
-          </div>
-        </div>
-        <div className={styles.imageButtonWrapper}>
-          <FileInput
-            onChange={handleFile}
-            onClick={(e: any) => (e.target.value = "")}
-          />
-          <button
-            className={styles.imageButton}
-            type="button"
-            onClick={() => {
-              setIsImageDeleted(true);
-              setSelectedFile(new Blob());
-            }}
-          >
-            <Trash className={styles.icon} /> Delete
-          </button>
-        </div>
-      </div>
-      <Label htmlFor="bio" label="Write your BIO">
-        <Textarea
-          name="bio"
-          onChange={formik.handleChange}
-          value={formik.values.bio}
-        />
-      </Label>
+      <Bio
+        image={image}
+        formik={formik}
+        isImageDeleted={isImageDeleted}
+        selectedFile={selectedFile}
+        handleFile={handleFile}
+        setIsImageDeleted={setIsImageDeleted}
+        setSelectedFile={setSelectedFile}
+      />
       <SaveButton />
     </form>
   );
