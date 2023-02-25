@@ -2,6 +2,8 @@ import dbConnect from "@/utils/dbConnect";
 import { NextApiRequest, NextApiResponse } from "next";
 import { hashPassword } from "@/utils/passwordVerification";
 import User from "@/models/User";
+import Student from "@/models/Student";
+import { Types } from "mongoose";
 
 type Data = {
   message: string;
@@ -44,14 +46,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   }
 
   const hashedPassword = await hashPassword(password);
-
+  const id = new Types.ObjectId();
   await User.create({
+    _id: id,
     name,
     age,
     email,
     password: hashedPassword,
     image:
       "https://res.cloudinary.com/dlyqh2gvy/image/upload/v1676912589/default_mjfaai.svg",
+  });
+
+  await Student.create({
+    user: id,
+    bio: "",
   });
 
   res.status(200).json({ message: "Successfully registered" });

@@ -1,0 +1,16 @@
+.button {
+  padding: $space-12 $space-32;
+  font-size: $font-14;
+  border: 1px solid $color-purple;
+  border-radius: 20px;
+
+  @media only screen and (min-width: $media-tablet) {
+    padding: $space-14 $space-40;
+    font-size: $font-16;
+  }
+}
+
+.student {
+  background-color: $color-navy;
+  color: $color-white;
+}

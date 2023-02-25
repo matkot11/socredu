@@ -36,14 +36,17 @@ const Profile = () => {
           />
           <h3 className={styles.heading}>Account Settings</h3>
           <AccountLink
+            href="/profile/editProfile"
             icon={<PersonIcon className={styles.icon} />}
             name="Edit Profile"
           />
           <AccountLink
+            href="/profile"
             icon={<Settings className={styles.icon} />}
             name="Personal Details"
           />
           <AccountLink
+            href="/profile"
             icon={<Money className={styles.icon} />}
             name="Purchased Lessons"
           />

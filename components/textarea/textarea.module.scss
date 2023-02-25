@@ -1,8 +1,10 @@
-.input {
+.textarea {
   padding: $space-14;
+  min-height: 200px;
   border-radius: 25px;
   border: 1px solid $color-black;
   font-size: $font-14;
+  resize:none;
 
   // Remove arrow from select
   -webkit-appearance: none;

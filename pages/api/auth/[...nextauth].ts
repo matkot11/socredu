@@ -20,6 +20,9 @@ export default NextAuth({
       }
       session.user = {
         id: currentUser._id.toString(),
+        email: currentUser.email,
+        name: currentUser.name,
+        image: currentUser.image,
       };
 
       return session;
@@ -49,6 +52,8 @@ export default NextAuth({
         }
 
         return {
+          id: user._id.toString(),
+          email: user.email,
           name: user.name,
           image: user.image,
         };

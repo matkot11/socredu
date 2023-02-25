@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-8;
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+  cursor: pointer;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.imageInputFile {
+  display: none;
+}
+
+.icon {
+  width: 16px;
+}
