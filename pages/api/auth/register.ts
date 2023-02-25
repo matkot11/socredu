@@ -4,6 +4,8 @@ import { hashPassword } from "@/utils/passwordVerification";
 import User from "@/models/User";
 import Student from "@/models/Student";
 import { Types } from "mongoose";
+import Teacher from "@/models/Teacher";
+import {week} from "@/data/week";
 
 type Data = {
   message: string;
@@ -59,7 +61,17 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
   await Student.create({
     user: id,
-    bio: "",
+    about: "",
+  });
+
+  await Teacher.create({
+    user: id,
+    about: "",
+    rating: 0,
+    categories: [],
+    topics: [],
+    price: "",
+    days: week.map((day) => ({ day: day, available: true, from: "", to: "" })),
   });
 
   res.status(200).json({ message: "Successfully registered" });

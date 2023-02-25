@@ -1,0 +1,60 @@
+.wrapper {
+  margin-top: $space-40;
+  padding: $space-24;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    106.39deg,
+    $color-purple 2.02%,
+    $color-light-blue 100%
+  );
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.inactive {
+  background: linear-gradient(106.07deg, #cdcdcd 4.16%, #efefef 97.18%);
+}
+
+.topWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dayHeader {
+  margin: 0;
+  color: $color-white;
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+}
+
+.bottomWrapper {
+  margin-top: $space-32;
+  display: flex;
+  justify-content: center;
+  gap: $space-8;
+}
+
+.label {
+  align-items: center;
+  gap: $space-8;
+}
+
+.textLabel {
+  margin: 0;
+  color: $color-white;
+}
+
+.select {
+  width: 100px;
+  border: none;
+}
+
+.line {
+  margin-bottom: 21px;
+  width: 16px;
+  height: 2px;
+  background-color: $color-white;
+  align-self: flex-end;
+}

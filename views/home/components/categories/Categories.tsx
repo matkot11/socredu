@@ -1,7 +1,7 @@
 import styles from "./categories.module.scss";
 import Category from "@/views/home/components/category/Category";
-import { categories } from "@/views/home/data/categories";
 import Header from "@/components/header/Header";
+import {categories} from "@/data/categories";
 
 const Categories = () => (
   <div>

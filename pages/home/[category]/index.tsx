@@ -6,10 +6,10 @@ import { TeacherInterface } from "@/types";
 import TeacherCard from "@/components/teacherCard/TeacherCard";
 import MainTemplate from "@/templates/mainTemplate/MainTemplate";
 import Search from "@/components/search/Search";
-import { categories } from "@/views/home/data/categories";
 import { useRouter } from "next/router";
 import Header from "@/components/header/Header";
 import dbConnect from "@/utils/dbConnect";
+import {categories} from "@/data/categories";
 
 interface CategoryProps {
   teachers: TeacherInterface[];

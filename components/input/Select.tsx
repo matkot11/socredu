@@ -1,19 +1,27 @@
 import styles from "./input.module.scss";
 import { ChangeEvent, ReactNode } from "react";
+import classNames from "classnames";
 
 interface InputProps {
   name: string;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  value: string;
   children: ReactNode;
+  disabled?: boolean;
+  className?: string;
 }
 
-const Select = ({ name, onChange, value, children }: InputProps) => (
+const Select = ({
+  name,
+  onChange,
+  children,
+  disabled = false,
+  className = "",
+}: InputProps) => (
   <select
+    disabled={disabled}
     name={name}
     onChange={onChange}
-    value={value}
-    className={styles.input}
+    className={classNames(styles.input, className)}
   >
     {children}
   </select>
