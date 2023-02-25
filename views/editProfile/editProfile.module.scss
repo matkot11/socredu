@@ -1,0 +1,60 @@
+.wrapper {
+  padding: $space-24;
+
+  @media only screen and (min-width: $media-tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+.leftWrapper {
+  //width: 40%;
+}
+
+.header {
+  margin-bottom: $space-40;
+  font-size: $font-20;
+  font-weight: $font-semi-bold;
+  color: $color-purple;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-30;
+  }
+}
+
+.subHeaderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.nameSubHeader {
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.nameSubHeaderPurple {
+  color: $color-purple;
+}
+
+.subHeader {
+  font-size: $font-12;
+  font-weight: $font-medium;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-14;
+  }
+}
+
+.buttonWrapper {
+  margin: $space-40 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: $space-40;
+}

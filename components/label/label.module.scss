@@ -8,4 +8,10 @@
     left: $space-8;
     bottom: $space-8;
   }
+  font-size: $font-14;
+  font-weight: $font-medium;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
 }
