@@ -1,6 +1,9 @@
 .wrapper {
   @media only screen and (min-width: $media-tablet) {
+    padding-right: $space-16;
     width: 50%;
+    height: 80vh;
+    overflow-x: hidden;
   }
 
   @media only screen and (min-width: $media-desktop) {

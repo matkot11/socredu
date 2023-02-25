@@ -3,7 +3,7 @@ import { TeacherInterface } from "@/types";
 import Image from "next/image";
 import Rating from "@/components/rating/Rating";
 import Link from "next/link";
-import { categories } from "@/views/home/data/categories";
+import {categories} from "@/data/categories";
 
 interface TeacherCardProps {
   teacher: TeacherInterface;

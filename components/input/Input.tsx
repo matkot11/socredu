@@ -1,14 +1,15 @@
 import styles from "./input.module.scss";
-import { ChangeEvent } from "react";
+import { ChangeEvent, KeyboardEvent } from "react";
 import classNames from "classnames";
 
 interface InputProps {
   name: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
   type?: string;
   placeholder?: string;
   className?: string;
+  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Input = ({
@@ -18,9 +19,11 @@ const Input = ({
   type = "text",
   placeholder = "",
   className = "",
+  onKeyDown,
 }: InputProps) => (
   <input
     name={name}
+    onKeyDown={onKeyDown}
     onChange={onChange}
     value={value}
     type={type}

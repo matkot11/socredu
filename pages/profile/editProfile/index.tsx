@@ -8,12 +8,25 @@ import TeacherBio from "@/views/editProfile/components/teacherBio/TeacherBio";
 import dbConnect from "@/utils/dbConnect";
 import Student from "@/models/Student";
 import { GetServerSideProps } from "next";
+import Teacher from "@/models/Teacher";
 
 interface EditProfileProps {
-  about: string;
+  studentAbout: string;
+  teacherAbout: string;
+  categories: string[];
+  topics: string[];
+  price: number;
+  days: any[];
 }
 
-const EditProfile = ({ about }: EditProfileProps) => {
+const EditProfile = ({
+  studentAbout,
+  teacherAbout,
+  categories,
+  topics,
+  price,
+  days,
+}: EditProfileProps) => {
   const session = useSession();
   const [isStudentEdit, setIsStudentEdit] = useState(true);
 
@@ -27,7 +40,7 @@ const EditProfile = ({ about }: EditProfileProps) => {
   return (
     <MainTemplate>
       <div className={styles.wrapper}>
-        <div className={styles.leftWrapper}>
+        <div>
           <div className={styles.headerWrapper}>
             <h2 className={styles.header}>EDIT PROFILE</h2>
             <div className={styles.subHeaderWrapper}>
@@ -57,9 +70,19 @@ const EditProfile = ({ about }: EditProfileProps) => {
           </div>
         </div>
         {isStudentEdit ? (
-          <StudentBio image={session.data.user?.image || ""} about={about} />
+          <StudentBio
+            image={session.data.user?.image || ""}
+            about={studentAbout}
+          />
         ) : (
-          <TeacherBio />
+          <TeacherBio
+            image={session.data.user?.image || ""}
+            about={teacherAbout}
+            categoriesProp={categories}
+            topicsProp={topics}
+            priceProp={price}
+            daysProp={days}
+          />
         )}
       </div>
     </MainTemplate>
@@ -72,9 +95,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   // @ts-ignore
   const student = await Student.findOne({ user: session?.user?.id });
+  // @ts-ignore
+  const teacher = await Teacher.findOne({ user: session?.user?.id });
+
   return {
     props: {
-      about: student.about,
+      studentAbout: student.about,
+      teacherAbout: teacher.about,
+      categories: teacher.categories,
+      topics: teacher.topics,
+      price: teacher.price,
+      days: JSON.parse(JSON.stringify(teacher.days)),
     },
   };
 };

@@ -1,0 +1,56 @@
+.wrapper {
+  @media only screen and (min-width: $media-tablet) {
+    padding-right: $space-16;
+    width: 50%;
+    height: 80vh;
+    overflow-x: hidden;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 30%;
+  }
+}
+
+.priceWrapper {
+  margin-top: $space-40;
+}
+
+.priceHeader {
+  margin-bottom: $space-16;
+  font-size: $font-16;
+  font-weight: $font-medium;
+}
+
+.priceLabel {
+  flex-direction: row;
+  align-items: center;
+  gap: $space-12;
+  font-weight: $font-medium;
+}
+
+.priceLabelText {
+  margin: 0;
+}
+
+.priceInputWrapper {
+  position: relative;
+}
+
+.priceInput {
+  padding: {
+    top: $space-8;
+    right: $space-14;
+    bottom: $space-8;
+    left: $space-24;
+  }
+  width: 100px;
+  font-size: $font-14;
+}
+
+.priceCurrency {
+  position: absolute;
+  top: 50%;
+  left: $space-8;
+  transform: translateY(-50%);
+  font-size: $font-14;
+}

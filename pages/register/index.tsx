@@ -78,7 +78,6 @@ const Register = () => {
             <Select
               name="age"
               onChange={formik.handleChange}
-              value={formik.values.age}
             >
               {Array.from(Array(100).keys()).map((_, index) => (
                 <option value={index} key={index}>

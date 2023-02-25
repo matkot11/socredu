@@ -1,28 +1,28 @@
-import englishIcon from "../icons/english.svg";
-import artIcon from "../icons/art.svg";
-import mathIcon from "../icons/math.svg";
-import historyIcon from "../icons/history.svg";
-import dramaIcon from "../icons/drama.svg";
-import biologyIcon from "../icons/biology.svg";
-import geographyIcon from "../icons/geography.svg";
-import socialStudiesIcon from "../icons/social-studies.svg";
-import chemistryIcon from "../icons/chemistry.svg";
-import languagesIcon from "../icons/languages.svg";
-import designIcon from "../icons/design.svg";
-import physicsIcon from "../icons/physics.svg";
-import philosophyIcon from "../icons/philosophy.svg";
-import literatureIcon from "../icons/literature.svg";
-import itIcon from "../icons/it.svg";
-import musicIcon from "../icons/music.svg";
+import englishIcon from "@/views/home/icons/english.svg";
+import artIcon from "@/views/home/icons/art.svg";
+import mathIcon from "@/views/home/icons/math.svg";
+import historyIcon from "@/views/home/icons/history.svg";
+import dramaIcon from "@/views/home/icons/drama.svg";
+import biologyIcon from "@/views/home/icons/biology.svg";
+import geographyIcon from "@/views/home/icons/geography.svg";
+import socialStudiesIcon from "@/views/home/icons/social-studies.svg";
+import chemistryIcon from "@/views/home/icons/chemistry.svg";
+import languagesIcon from "@/views/home/icons/languages.svg";
+import designIcon from "@/views/home/icons/design.svg";
+import physicsIcon from "@/views/home/icons/physics.svg";
+import philosophyIcon from "@/views/home/icons/philosophy.svg";
+import literatureIcon from "@/views/home/icons/literature.svg";
+import itIcon from "@/views/home/icons/it.svg";
+import musicIcon from "@/views/home/icons/music.svg";
 
-interface Category {
+export interface CategoryInterface {
   id: number;
   name: string;
   display: string;
   icon: string;
 }
 
-export const categories: Category[] = [
+export const categories: CategoryInterface[] = [
   { id: 1, name: "english", display: "English", icon: englishIcon },
   { id: 2, name: "art", display: "Art", icon: artIcon },
   { id: 3, name: "math", display: "Math", icon: mathIcon },

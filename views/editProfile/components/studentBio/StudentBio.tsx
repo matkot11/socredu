@@ -56,6 +56,7 @@ const StudentBio = ({ image, about }: StudentBioProps) => {
       }
     },
   });
+
   return (
     <form onSubmit={formik.handleSubmit} className={styles.wrapper}>
       <Bio
