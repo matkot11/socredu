@@ -1,0 +1,10 @@
+.wrapper {
+  padding: $space-12 $space-24;
+  display: flex;
+  align-items: center;
+  gap: $space-12;
+  font-size: $space-12;
+  font-weight: $font-semi-bold;
+  border: 1px solid $color-purple;
+  border-radius: 20px;
+}

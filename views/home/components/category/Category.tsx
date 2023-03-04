@@ -11,7 +11,7 @@ interface CategoryProps {
 
 const Category = ({ display, name, icon }: CategoryProps) => (
   <Link
-    href={`/home/${name}`}
+    href={`/home/category/${name}`}
     className={classNames(styles.wrapper, styles[name])}
   >
     <Image className={styles.image} src={icon} alt={name} quality={100} />

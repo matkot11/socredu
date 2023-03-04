@@ -1,6 +1,6 @@
 import styles from "./teacherBio.module.scss";
 import Bio from "@/views/editProfile/components/bio/Bio";
-import SaveButton from "@/views/editProfile/components/editButton/SaveButton";
+import SaveButton from "@/views/editProfile/components/saveButton/SaveButton";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useError } from "@/hooks/useError";
@@ -98,10 +98,9 @@ const TeacherBio = ({
           price: values.price,
           days,
         });
-        // await router.push("/profile");
+        await router.push("/profile");
         dispatchError(response.data.message);
       } catch (error: any) {
-        console.log(error);
         dispatchError(error.response.data.message);
       }
     },

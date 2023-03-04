@@ -7,6 +7,7 @@ interface InputProps {
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   children: ReactNode;
   disabled?: boolean;
+  defaultValue?: string;
   className?: string;
 }
 
@@ -15,11 +16,13 @@ const Select = ({
   onChange,
   children,
   disabled = false,
+  defaultValue = "",
   className = "",
 }: InputProps) => (
   <select
     disabled={disabled}
     name={name}
+    defaultValue={defaultValue}
     onChange={onChange}
     className={classNames(styles.input, className)}
   >

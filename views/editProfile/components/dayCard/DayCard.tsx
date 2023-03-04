@@ -62,6 +62,7 @@ const DayCard = ({ day, setDay }: DayCardProps) => {
             disabled={!day.available}
             onChange={(e) => handleChangeSelect(e.target.value, "from")}
             name="from"
+            defaultValue={day.from}
           >
             {hours.map((hour) => (
               <option key={hour} value={hour}>
@@ -82,6 +83,7 @@ const DayCard = ({ day, setDay }: DayCardProps) => {
             disabled={!day.available}
             onChange={(e) => handleChangeSelect(e.target.value, "to")}
             name="to"
+            defaultValue={day.to}
           >
             {hours.map((hour) => (
               <option key={hour} value={hour}>

@@ -1,0 +1,106 @@
+import styles from "./bookForm.module.scss";
+import Label from "@/components/label/label";
+import Select from "@/components/input/Select";
+import {
+  addMonths,
+  eachDayOfInterval,
+  eachHourOfInterval,
+  format,
+  getDay,
+  getHours,
+  getMonth,
+  getYear,
+} from "date-fns";
+import Textarea from "@/components/textarea/Textarea";
+import { FormikProps } from "formik";
+
+interface BookFormProps {
+  formik: FormikProps<any>;
+  days: {
+    day: string;
+    available: boolean;
+    from: string;
+    to: string;
+  }[];
+}
+
+const BookForm = ({ formik, days }: BookFormProps) => {
+  const getDays = () => {
+    const allDates = eachDayOfInterval({
+      start: new Date(),
+      end: addMonths(new Date(), 3),
+    });
+    const filteredDays = [];
+    for (const date of allDates) {
+      if (days.at(getDay(date) - 1)?.available) {
+        filteredDays.push(date);
+      }
+    }
+
+    return filteredDays;
+  };
+
+  const getTimes = (day: Date) => {
+    const dayObject = days.at(getDay(day) - 1);
+    const from = dayObject?.from.split(":")[0];
+    const to = dayObject?.to.split(":")[0];
+
+    const times = eachHourOfInterval({
+      start: new Date(
+        getYear(day),
+        getMonth(day),
+        getYear(day),
+        parseInt(from || "7"),
+      ),
+      end: new Date(
+        getYear(day),
+        getMonth(day),
+        getYear(day),
+        parseInt(to || "7") - 1,
+      ),
+    });
+
+    const filteredTimes = [];
+
+    for (const time of times) {
+      filteredTimes.push(getHours(time));
+    }
+
+    return filteredTimes;
+  };
+  return (
+    <form className={styles.form} onSubmit={formik.handleSubmit}>
+      <Label htmlFor="date" label="Date">
+        <Select name="date" onChange={formik.handleChange}>
+          {getDays().map((day) => (
+            <option key={day.toString()} value={day.toString()}>
+              {format(day, "PPPP")}
+            </option>
+          ))}
+        </Select>
+      </Label>
+      <Label htmlFor="time" label="Time">
+        <Select name="time" onChange={formik.handleChange}>
+          {formik.values.date &&
+            getTimes(new Date(formik.values.date)).map((time) => (
+              <option key={time.toString()} value={time.toString()}>
+                {time}:00
+              </option>
+            ))}
+        </Select>
+      </Label>
+      <Label htmlFor="learn" label="Write what you want to learn">
+        <Textarea
+          name="learn"
+          onChange={formik.handleChange}
+          value={formik.values.learn}
+        />
+      </Label>
+      <button className={styles.submitButton} type="submit">
+        Pay
+      </button>
+    </form>
+  );
+};
+
+export default BookForm;

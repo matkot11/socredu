@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentWrapper {
+  margin-top: $space-40;
+  padding: $space-32 $space-16;
+  background-color: $color-gray;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button {
+  margin-top: $space-40;
+  padding: $space-16 $space-40;
+  align-self: flex-end;
+  width: auto;
+}

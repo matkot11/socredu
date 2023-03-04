@@ -1,6 +1,6 @@
 import styles from "./studentBio.module.scss";
 import { useFormik } from "formik";
-import SaveButton from "@/views/editProfile/components/editButton/SaveButton";
+import SaveButton from "@/views/editProfile/components/saveButton/SaveButton";
 import { useState } from "react";
 import { useError } from "@/hooks/useError";
 import axios from "axios";

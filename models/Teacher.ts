@@ -24,20 +24,22 @@ const teacherSchema = new Schema({
     {
       day: {
         type: String,
-        // required: true,
       },
       available: {
         type: Boolean,
-        // required: true,
       },
       from: {
         type: String,
-        // required: true,
       },
       to: {
         type: String,
-        // required: true,
       },
+    },
+  ],
+  bookedLessons: [
+    {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: "BookedLesson",
     },
   ],
 });

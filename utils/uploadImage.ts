@@ -17,7 +17,6 @@ export const uploadImage = async (
 
     imageURL = response.url;
   } catch (e) {
-    console.log(e)
     res.status(404).json({ message: "Profile image could not be uploaded." });
   }
 
