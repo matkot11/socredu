@@ -5,7 +5,7 @@ import User from "@/models/User";
 import Student from "@/models/Student";
 import { Types } from "mongoose";
 import Teacher from "@/models/Teacher";
-import {week} from "@/data/week";
+import { week } from "@/data/week";
 
 type Data = {
   message: string;
@@ -71,7 +71,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     categories: [],
     topics: [],
     price: "",
-    days: week.map((day) => ({ day: day, available: true, from: "", to: "" })),
+    days: week.map((day) => ({
+      day: day,
+      available: true,
+      from: "7:00",
+      to: "22:00",
+    })),
+    bookedLessons: [],
   });
 
   res.status(200).json({ message: "Successfully registered" });

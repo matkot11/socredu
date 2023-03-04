@@ -21,10 +21,6 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  teacher: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 export default models.User || model("User", UserSchema);

@@ -1,0 +1,21 @@
+.form {
+  margin-bottom: $space-32;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $space-24;
+}
+
+.submitButton {
+  padding: $space-12 $space-32;
+  align-self: flex-end;
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+  border: 1px solid $color-dark-blue;
+  border-radius: 25px;
+
+  @media only screen and (min-width: $media-tablet) {
+    padding: $space-16 $space-40;
+    font-size: $font-16;
+  }
+}

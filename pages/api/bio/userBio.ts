@@ -51,7 +51,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     student.about = about;
     await student.save();
   }
-  // TODO: Check if data is the same or empty.
+
   res.status(200).json({ message: "Successfully updated BIO." });
 };
 

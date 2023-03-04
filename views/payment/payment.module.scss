@@ -1,0 +1,71 @@
+.wrapper {
+  padding: $space-24;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: $media-tablet) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+.header {
+  margin-bottom: $space-8;
+  font-size: $font-20;
+  font-weight: $font-semi-bold;
+  color: $color-purple;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-30;
+  }
+}
+
+.scheduleWrapper {
+  margin: $space-24 0;
+  display: flex;
+  gap: $space-40;
+}
+
+.dateWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.dateWrapper {
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.time,
+.info {
+  font-size: $font-12;
+  font-weight: $font-medium;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-14;
+  }
+}
+
+.subHeader {
+  margin: {
+    top: $space-24;
+    bottom: $space-16;
+  }
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.about {
+  margin-bottom: $space-32;
+  font-size: $font-14;
+  font-weight: $font-medium;
+}
