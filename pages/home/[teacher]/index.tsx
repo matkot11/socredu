@@ -9,24 +9,12 @@ import Rating from "@/components/rating/Rating";
 import Category from "@/views/teacher/components/category/Category";
 import { categories } from "@/data/categories";
 import { useFormik } from "formik";
-import Label from "@/components/label/label";
-import Select from "@/components/input/Select";
-import Textarea from "@/components/textarea/Textarea";
-import {
-  eachDayOfInterval,
-  addMonths,
-  getDay,
-  format,
-  eachHourOfInterval,
-  getYear,
-  getMonth,
-  getHours,
-} from "date-fns";
 import BookForm from "@/views/teacher/components/bookForm/BookForm";
 import { useError } from "@/hooks/useError";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import BookedLesson from "@/models/BookedLesson";
 
 interface TeacherProps {
   teacher: {
@@ -45,9 +33,12 @@ interface TeacherProps {
       to: string;
     }[];
   };
+  bookedLessons: {
+    when: Date;
+  }[];
 }
 
-const TeacherInfo = ({ teacher }: TeacherProps) => {
+const TeacherInfo = ({ teacher, bookedLessons }: TeacherProps) => {
   const { dispatchError } = useError();
   const session = useSession();
   const router = useRouter();
@@ -125,7 +116,11 @@ const TeacherInfo = ({ teacher }: TeacherProps) => {
         </div>
         <div className={styles.rightWrapper}>
           <h3 className={styles.header}>Book a lesson with me</h3>
-          <BookForm formik={formik} days={teacher.days} />
+          <BookForm
+            formik={formik}
+            days={teacher.days}
+            bookedLessons={bookedLessons.map((lesson) => lesson.when)}
+          />
         </div>
       </div>
     </MainTemplate>
@@ -154,6 +149,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     _id: teacherParam,
   }).populate("user", "name image email", User);
 
+  const bookedLessons = await BookedLesson.find({ teacher: teacher._id });
+
   return {
     props: {
       teacher: {
@@ -167,6 +164,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         topics: teacher.topics,
         days: JSON.parse(JSON.stringify(teacher.days)),
       },
+      bookedLessons: bookedLessons.map((lesson) => ({
+        when: lesson.when.toString(),
+      })),
     },
   };
 };
