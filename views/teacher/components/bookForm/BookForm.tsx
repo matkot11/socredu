@@ -6,6 +6,7 @@ import {
   eachDayOfInterval,
   eachHourOfInterval,
   format,
+  getDate,
   getDay,
   getHours,
   getMonth,
@@ -22,24 +23,10 @@ interface BookFormProps {
     from: string;
     to: string;
   }[];
+  bookedLessons: Date[];
 }
 
-const BookForm = ({ formik, days }: BookFormProps) => {
-  const getDays = () => {
-    const allDates = eachDayOfInterval({
-      start: new Date(),
-      end: addMonths(new Date(), 3),
-    });
-    const filteredDays = [];
-    for (const date of allDates) {
-      if (days.at(getDay(date) - 1)?.available) {
-        filteredDays.push(date);
-      }
-    }
-
-    return filteredDays;
-  };
-
+const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
   const getTimes = (day: Date) => {
     const dayObject = days.at(getDay(day) - 1);
     const from = dayObject?.from.split(":")[0];
@@ -60,18 +47,55 @@ const BookForm = ({ formik, days }: BookFormProps) => {
       ),
     });
 
-    const filteredTimes = [];
+    const filteredBookedLessonsWithDay = bookedLessons.map((lesson) =>
+      getDate(new Date(lesson)),
+    );
 
-    for (const time of times) {
-      filteredTimes.push(getHours(time));
+    let filteredTimesWithBookedLessons = [];
+
+    const getProperBookedLesson = (day: Date) => {
+      return bookedLessons[filteredBookedLessonsWithDay.indexOf(getDate(day))];
+    };
+    if (filteredBookedLessonsWithDay.includes(getDate(day))) {
+      filteredTimesWithBookedLessons = times.filter(
+        (time) =>
+          getHours(time) !== getHours(new Date(getProperBookedLesson(day))) - 1,
+      );
+    } else {
+      filteredTimesWithBookedLessons = times;
     }
 
-    return filteredTimes;
+    const filteredTimes = new Set();
+    for (const time of filteredTimesWithBookedLessons) {
+      filteredTimes.add(getHours(time));
+    }
+
+    // @ts-ignore
+    return [...filteredTimes];
   };
+  const getDays = () => {
+    const allDates = eachDayOfInterval({
+      start: new Date(),
+      end: addMonths(new Date(), 1),
+    });
+    const filteredDays = [];
+    for (const date of allDates) {
+      if (days.at(getDay(date) - 1)?.available && getTimes(date).length > 0) {
+        filteredDays.push(date);
+      }
+    }
+
+    return filteredDays;
+  };
+
   return (
     <form className={styles.form} onSubmit={formik.handleSubmit}>
       <Label htmlFor="date" label="Date">
-        <Select name="date" onChange={formik.handleChange}>
+        <Select
+          defaultValue={getDays()[0].toString()}
+          name="date"
+          onChange={formik.handleChange}
+        >
           {getDays().map((day) => (
             <option key={day.toString()} value={day.toString()}>
               {format(day, "PPPP")}
@@ -80,7 +104,14 @@ const BookForm = ({ formik, days }: BookFormProps) => {
         </Select>
       </Label>
       <Label htmlFor="time" label="Time">
-        <Select name="time" onChange={formik.handleChange}>
+        <Select
+          name="time"
+          onChange={formik.handleChange}
+          disabled={
+            !formik.values.date ||
+            getTimes(new Date(formik.values.date)).length === 0
+          }
+        >
           {formik.values.date &&
             getTimes(new Date(formik.values.date)).map((time) => (
               <option key={time.toString()} value={time.toString()}>
@@ -97,7 +128,7 @@ const BookForm = ({ formik, days }: BookFormProps) => {
         />
       </Label>
       <button className={styles.submitButton} type="submit">
-        Pay
+        Reserve
       </button>
     </form>
   );
