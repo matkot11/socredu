@@ -73,6 +73,7 @@ const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
     // @ts-ignore
     return [...filteredTimes];
   };
+
   const getDays = () => {
     const allDates = eachDayOfInterval({
       start: new Date(),
@@ -92,15 +93,16 @@ const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
     <form className={styles.form} onSubmit={formik.handleSubmit}>
       <Label htmlFor="date" label="Date">
         <Select
-          defaultValue={getDays()[0].toString()}
+          defaultValue={bookedLessons.length > 0 ? getDays()[0].toString() : ""}
           name="date"
           onChange={formik.handleChange}
         >
-          {getDays().map((day) => (
-            <option key={day.toString()} value={day.toString()}>
-              {format(day, "PPPP")}
-            </option>
-          ))}
+          {bookedLessons.length > 0 &&
+            getDays().map((day) => (
+              <option key={day.toString()} value={day.toString()}>
+                {format(day, "PPPP")}
+              </option>
+            ))}
         </Select>
       </Label>
       <Label htmlFor="time" label="Time">
@@ -109,7 +111,8 @@ const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
           onChange={formik.handleChange}
           disabled={
             !formik.values.date ||
-            getTimes(new Date(formik.values.date)).length === 0
+            (formik.values.date &&
+              getTimes(new Date(formik.values.date)).length === 0)
           }
         >
           {formik.values.date &&
