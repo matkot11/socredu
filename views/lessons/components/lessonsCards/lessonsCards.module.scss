@@ -1,0 +1,47 @@
+.wrapper {
+  margin-top: $space-50;
+  padding: $space-24;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: $space-32;
+  background-color: $color-purple;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  overflow-y: scroll;
+
+  @media only screen and (min-width: $media-tablet) {
+    padding: $space-32;
+  }
+}
+
+.gray {
+  background-color: #a5a5a5;
+}
+
+.date {
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+  color: $color-white;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    font-size: $font-20;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: $space-32;
+
+  @media only screen and (min-width: $media-tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}

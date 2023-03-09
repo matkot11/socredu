@@ -6,7 +6,7 @@ import AccountButton from "@/views/profile/components/accountButton/AccountButto
 import AccountLink from "@/views/profile/components/accountButton/AccountLink";
 import PersonIcon from "@/assets/icons/PersonIcon";
 import Settings from "@/assets/icons/Settings";
-import Money from "@/assets/icons/Money";
+import Book from "@/assets/icons/Book";
 import Logout from "@/assets/icons/Logout";
 import settingsIllustration from "@/assets/illustrations/settings-illustrations.svg";
 import Image from "next/image";
@@ -46,9 +46,9 @@ const Profile = () => {
             name="Personal Details"
           />
           <AccountLink
-            href="/profile"
-            icon={<Money className={styles.icon} />}
-            name="Purchased Lessons"
+            href="/profile/lessons"
+            icon={<Book className={styles.icon} />}
+            name="Lessons"
           />
           <AccountButton
             onClick={handleSignOut}

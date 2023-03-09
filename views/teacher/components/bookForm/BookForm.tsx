@@ -28,6 +28,7 @@ interface BookFormProps {
 
 const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
   const getTimes = (day: Date) => {
+    if (!day || !bookedLessons || !days) return [];
     const dayObject = days.at(getDay(day) - 1);
     const from = dayObject?.from.split(":")[0];
     const to = dayObject?.to.split(":")[0];
@@ -93,7 +94,9 @@ const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
     <form className={styles.form} onSubmit={formik.handleSubmit}>
       <Label htmlFor="date" label="Date">
         <Select
-          defaultValue={bookedLessons.length > 0 ? getDays()[0].toString() : ""}
+          defaultValue={
+            bookedLessons && getDays().length > 0 ? getDays()[0].toString() : ""
+          }
           name="date"
           onChange={formik.handleChange}
         >
@@ -111,11 +114,12 @@ const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
           onChange={formik.handleChange}
           disabled={
             !formik.values.date ||
-            (formik.values.date &&
+            (bookedLessons &&
               getTimes(new Date(formik.values.date)).length === 0)
           }
         >
           {formik.values.date &&
+            bookedLessons &&
             getTimes(new Date(formik.values.date)).map((time) => (
               <option key={time.toString()} value={time.toString()}>
                 {time}:00

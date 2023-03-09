@@ -8,7 +8,7 @@ const bookedLessonSchema = new Schema({
   },
   teacher: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "User",
+    ref: "Teacher",
     required: true,
   },
   when: {

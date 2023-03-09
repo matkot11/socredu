@@ -1,0 +1,39 @@
+.wrapper {
+  margin: 0 $space-24;
+  padding: $space-8;
+  border: 1px solid $color-dark-blue;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media only screen and (min-width: $media-tablet) {
+    padding: $space-8 $space-24;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    align-self: center;
+    width: 50%;
+  }
+}
+
+.button {
+  padding: $space-4 $space-16;
+  font-size: $font-14;
+  border-radius: 25px;
+
+  @media only screen and (min-width: $media-tablet) {
+    padding: $space-8 $space-24;
+    font-size: $font-16;
+  }
+}
+
+.recent {
+  background-color: #a5a5a5;
+  color: $color-white;
+}
+
+.future {
+  background-color: $color-light-blue;
+  color: $color-dark-blue;
+}

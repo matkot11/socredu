@@ -116,11 +116,13 @@ const TeacherInfo = ({ teacher, bookedLessons }: TeacherProps) => {
         </div>
         <div className={styles.rightWrapper}>
           <h3 className={styles.header}>Book a lesson with me</h3>
-          <BookForm
-            formik={formik}
-            days={teacher.days}
-            bookedLessons={bookedLessons.map((lesson) => lesson.when)}
-          />
+          {bookedLessons && teacher.days && (
+            <BookForm
+              formik={formik}
+              days={teacher.days}
+              bookedLessons={bookedLessons.map((lesson) => lesson.when)}
+            />
+          )}
         </div>
       </div>
     </MainTemplate>
