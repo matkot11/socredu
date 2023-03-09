@@ -5,10 +5,15 @@ import { useState } from "react";
 import Close from "@/assets/icons/Close";
 import { useRouter } from "next/router";
 import classNames from "classnames";
+import { signOut } from "next-auth/react";
 
 const Navigation = () => {
   const router = useRouter();
   const [isOpenNavigation, setIsOpenNavigation] = useState(false);
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   return (
     <>
@@ -42,10 +47,12 @@ const Navigation = () => {
             </li>
             <li>
               <Link
-                className={router.pathname == "/" ? styles.activeLink : ""}
-                href="/"
+                className={
+                  router.pathname == "/profile/lessons" ? styles.activeLink : ""
+                }
+                href="/profile/lessons"
               >
-                Inbox
+                Lessons
               </Link>
             </li>
             <li>
@@ -57,6 +64,11 @@ const Navigation = () => {
               >
                 Profile
               </Link>
+            </li>
+            <li>
+              <button className={styles.logout} onClick={handleSignOut}>
+                Logout
+              </button>
             </li>
           </ul>
         </nav>

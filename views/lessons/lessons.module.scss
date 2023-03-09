@@ -1,0 +1,38 @@
+.wrapper {
+  min-height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.innerWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: $space-8;
+  padding-left: $space-24;
+  font-size: $font-20;
+  font-weight: $font-semi-bold;
+  color: $color-purple;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-30;
+  }
+}
+
+.subHeader {
+  margin: {
+    top: $space-8;
+    right: $space-16;
+    bottom: $space-50;
+  }
+  padding-left: $space-24;
+  font-size: $font-14;
+  color: $color-dark-blue;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-20;
+  }
+}

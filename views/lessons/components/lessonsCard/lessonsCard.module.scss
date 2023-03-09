@@ -1,0 +1,94 @@
+.wrapper {
+  padding: $space-24;
+  background-color: $color-white;
+  border-radius: 15px;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 330px;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 400px;
+  }
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-16;
+}
+
+.header {
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-18;
+  }
+}
+
+.purple {
+  color: $color-purple;
+}
+
+.imageWrapper {
+  width: 33px;
+  height: 33px;
+  position: relative;
+  flex-shrink: 0;
+
+  @media only screen and (min-width: $media-tablet) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.image {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about {
+  margin-top: $space-16;
+  font-size: $font-12;
+  font-weight: $font-medium;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-14;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    font-size: $font-16;
+  }
+}
+
+.timeWrapper {
+  margin-top: $space-16;
+  display: flex;
+  align-items: center;
+  gap: $space-8;
+}
+
+.icon {
+  width: 19px;
+  stroke: $color-light-blue;
+}
+
+.time {
+  font-size: $font-12;
+  font-weight: $font-medium;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-14;
+  }
+}
