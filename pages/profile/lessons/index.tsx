@@ -140,7 +140,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           image: lesson.teacher.user.image,
         },
       })),
-      revalidate: 1,
     },
   };
 };

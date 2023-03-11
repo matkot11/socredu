@@ -2,11 +2,19 @@ import styles from "./search.module.scss";
 import Input from "@/components/input/Input";
 import { useState } from "react";
 import SearchIcon from "@/assets/icons/SearchIcon";
+import { useRouter } from "next/router";
 
 const Search = () => {
+  const router = useRouter();
   const [search, setSearch] = useState("");
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    await router.replace(`/home/search?search=${search}`);
+  };
+
   return (
-    <div className={styles.contentInputWrapper}>
+    <form className={styles.contentInputWrapper} onSubmit={handleSubmit}>
       <Input
         placeholder="Search for lesson"
         name="search"
@@ -15,8 +23,7 @@ const Search = () => {
         className={styles.contentInput}
       />
       <SearchIcon className={styles.contentSearch} />
-    </div>
+    </form>
   );
 };
-
 export default Search;
