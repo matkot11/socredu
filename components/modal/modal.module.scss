@@ -1,0 +1,49 @@
+.wrapper {
+  padding: $space-32;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+  margin-bottom: $space-16;
+  text-align: center;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.body {
+  font-size: $font-12;
+  font-weight: $font-medium;
+  text-align: center;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-14;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.button {
+  padding: $space-16;
+  width: 100%;
+  font-size: $font-12;
+  font-weight: $font-medium;
+  border-top: 1px solid $color-black;
+
+  &:first-child {
+    border-right: 1px solid $color-black;
+  }
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-14;
+  }
+}
