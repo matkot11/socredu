@@ -1,0 +1,81 @@
+.wrapper {
+  padding: $space-24;
+
+  @media only screen and (min-width: $media-tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+.rightWrapper {
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: $media-tablet) {
+    padding-right: $space-16;
+    width: 50%;
+    height: 80vh;
+    overflow-x: hidden;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    width: 30%;
+  }
+}
+
+.subHeaderWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.nameSubHeader {
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+}
+
+.nameSubHeaderPurple {
+  color: $color-purple;
+}
+
+.subHeader {
+  font-size: $font-12;
+  font-weight: $font-medium;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-14;
+  }
+}
+
+.buttonWrapper {
+  margin: $space-40 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: $space-40;
+}
+
+.link {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    font-size: $font-20;
+  }
+}
+
+.icon {
+  width: 16px;
+  stroke-width: 2;
+}

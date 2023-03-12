@@ -10,7 +10,7 @@ interface ProfileButtonProps {
 
 const ProfileButton = ({ image, name }: ProfileButtonProps) => {
   return (
-    <Link href="/profile" className={styles.wrapper}>
+    <Link href="/profile/checkProfile" className={styles.wrapper}>
         <div className={styles.infoWrapper}>
           <div className={styles.imageWrapper}>
             <Image className={styles.image} src={image} alt={name} fill />
