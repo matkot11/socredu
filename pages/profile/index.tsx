@@ -41,11 +41,6 @@ const Profile = () => {
             name="Edit Profile"
           />
           <AccountLink
-            href="/profile"
-            icon={<Settings className={styles.icon} />}
-            name="Personal Details"
-          />
-          <AccountLink
             href="/profile/lessons"
             icon={<Book className={styles.icon} />}
             name="Lessons"

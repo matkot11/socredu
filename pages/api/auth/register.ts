@@ -15,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method !== "POST") {
     return;
   }
-  const { name, age, email, password, repeatPassword } = req.body;
+  const { name, email, password, repeatPassword } = req.body;
 
   if (!email || !email.includes("@")) {
     res.status(422).json({ message: "Invalid email address." });
@@ -25,13 +25,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const user = await User.findOne({ email });
   if (user) {
     res.status(422).json({ message: "User already exists." });
-    return;
-  }
-
-  if (!age || age < 6) {
-    res.status(422).json({
-      message: "In order to use Socredu you need to be at least 6 years old.",
-    });
     return;
   }
 
@@ -52,7 +45,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   await User.create({
     _id: id,
     name,
-    age,
     email,
     password: hashedPassword,
     image:
