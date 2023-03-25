@@ -45,9 +45,11 @@ export const getServerSideProps = async () => {
     .sort({ rating: -1 })
     .limit(4);
 
+  const filteredTeachers = teachers.filter((teacher) => teacher.rating > 0);
+
   return {
     props: {
-      mostPopularTeachers: teachers.map((teacher) => ({
+      mostPopularTeachers: filteredTeachers.map((teacher) => ({
         id: teacher._id.toString(),
         name: teacher.user.name,
         image: teacher.user.image,

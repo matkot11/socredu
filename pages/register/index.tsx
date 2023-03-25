@@ -5,7 +5,6 @@ import Image from "next/image";
 import registerIllustration from "@/assets/illustrations/register-illustration.svg";
 import { useFormik } from "formik";
 import PrimaryButton from "@/components/primaryLink/PrimaryButton";
-import Select from "@/components/input/Select";
 import Input from "@/components/input/Input";
 import axios from "axios";
 import { signIn } from "next-auth/react";
@@ -21,7 +20,6 @@ const Register = () => {
   const formik = useFormik({
     initialValues: {
       name: "",
-      age: "",
       email: "",
       password: "",
       repeatPassword: "",
@@ -73,18 +71,6 @@ const Register = () => {
               onChange={formik.handleChange}
               value={formik.values.name}
             />
-          </Label>
-          <Label htmlFor="age" label="Age">
-            <Select
-              name="age"
-              onChange={formik.handleChange}
-            >
-              {Array.from(Array(100).keys()).map((_, index) => (
-                <option value={index} key={index}>
-                  {index}
-                </option>
-              ))}
-            </Select>
           </Label>
           <Label htmlFor="email" label="Email">
             <Input
