@@ -29,21 +29,21 @@ interface BookFormProps {
 const BookForm = ({ formik, days, bookedLessons = [] }: BookFormProps) => {
   const getTimes = (day: Date) => {
     if (!day || !days) return [];
-    const dayObject = days.at(getDay(day) - 1);
+    const dayObject = days.at(getDay(new Date(day)) - 1);
     const from = dayObject?.from.split(":")[0];
     const to = dayObject?.to.split(":")[0];
 
     const times = eachHourOfInterval({
       start: new Date(
-        getYear(day),
-        getMonth(day),
-        getYear(day),
+        getYear(new Date(day)),
+        getMonth(new Date(day)),
+        getYear(new Date(day)),
         parseInt(from || "7"),
       ),
       end: new Date(
-        getYear(day),
-        getMonth(day),
-        getYear(day),
+        getYear(new Date(day)),
+        getMonth(new Date(day)),
+        getYear(new Date(day)),
         parseInt(to || "7") - 1,
       ),
     });
@@ -55,12 +55,14 @@ const BookForm = ({ formik, days, bookedLessons = [] }: BookFormProps) => {
     let filteredTimesWithBookedLessons = [];
 
     const getProperBookedLesson = (day: Date) => {
-      return bookedLessons[filteredBookedLessonsWithDay.indexOf(getDate(day))];
+      return bookedLessons[
+        filteredBookedLessonsWithDay.indexOf(getDate(new Date(day)))
+      ];
     };
-    if (filteredBookedLessonsWithDay.includes(getDate(day))) {
+    if (filteredBookedLessonsWithDay.includes(getDate(new Date(day)))) {
       filteredTimesWithBookedLessons = times.filter(
         (time) =>
-          getHours(time) !== getHours(new Date(getProperBookedLesson(day))) - 1,
+          getHours(time) !== getHours(new Date(getProperBookedLesson(day))),
       );
     } else {
       filteredTimesWithBookedLessons = times;
@@ -82,8 +84,11 @@ const BookForm = ({ formik, days, bookedLessons = [] }: BookFormProps) => {
     });
     const filteredDays = [];
     for (const date of allDates) {
-      if (days.at(getDay(date) - 1)?.available && getTimes(date).length > 0) {
-        filteredDays.push(date);
+      if (
+        days.at(getDay(new Date(date)) - 1)?.available &&
+        getTimes(new Date(date)).length > 0
+      ) {
+        filteredDays.push(new Date(date));
       }
     }
 
@@ -100,7 +105,7 @@ const BookForm = ({ formik, days, bookedLessons = [] }: BookFormProps) => {
         >
           {getDays().map((day) => (
             <option key={day.toString()} value={day.toString()}>
-              {format(day, "PPPP")}
+              {format(new Date(day), "PPPP")}
             </option>
           ))}
         </Select>

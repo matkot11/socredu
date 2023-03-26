@@ -59,7 +59,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   await Teacher.create({
     user: id,
     about: "",
-    rating: 0,
+    rating: [],
     categories: [],
     topics: [],
     price: "",
