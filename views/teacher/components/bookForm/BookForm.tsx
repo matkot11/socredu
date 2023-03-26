@@ -26,9 +26,9 @@ interface BookFormProps {
   bookedLessons: Date[];
 }
 
-const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
+const BookForm = ({ formik, days, bookedLessons = [] }: BookFormProps) => {
   const getTimes = (day: Date) => {
-    if (!day || !bookedLessons || !days) return [];
+    if (!day || !days) return [];
     const dayObject = days.at(getDay(day) - 1);
     const from = dayObject?.from.split(":")[0];
     const to = dayObject?.to.split(":")[0];
@@ -94,18 +94,15 @@ const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
     <form className={styles.form} onSubmit={formik.handleSubmit}>
       <Label htmlFor="date" label="Date">
         <Select
-          defaultValue={
-            bookedLessons && getDays().length > 0 ? getDays()[0].toString() : ""
-          }
+          defaultValue={getDays().length > 0 ? getDays()[0].toString() : ""}
           name="date"
           onChange={formik.handleChange}
         >
-          {bookedLessons.length > 0 &&
-            getDays().map((day) => (
-              <option key={day.toString()} value={day.toString()}>
-                {format(day, "PPPP")}
-              </option>
-            ))}
+          {getDays().map((day) => (
+            <option key={day.toString()} value={day.toString()}>
+              {format(day, "PPPP")}
+            </option>
+          ))}
         </Select>
       </Label>
       <Label htmlFor="time" label="Time">
@@ -114,12 +111,10 @@ const BookForm = ({ formik, days, bookedLessons }: BookFormProps) => {
           onChange={formik.handleChange}
           disabled={
             !formik.values.date ||
-            (bookedLessons &&
-              getTimes(new Date(formik.values.date)).length === 0)
+            getTimes(new Date(formik.values.date)).length === 0
           }
         >
           {formik.values.date &&
-            bookedLessons &&
             getTimes(new Date(formik.values.date)).map((time) => (
               <option key={time.toString()} value={time.toString()}>
                 {time}:00

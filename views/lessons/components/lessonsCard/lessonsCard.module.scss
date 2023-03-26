@@ -33,6 +33,11 @@
   }
 }
 
+.inactiveLink {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .purple {
   color: $color-purple;
 }
@@ -74,8 +79,14 @@
   }
 }
 
-.timeWrapper {
+.bottomWrapper {
   margin-top: $space-16;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeWrapper {
   display: flex;
   align-items: center;
   gap: $space-8;
@@ -93,6 +104,28 @@
   @media only screen and (min-width: $media-tablet) {
     font-size: $font-14;
   }
+}
+
+.link {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  font-size: $font-14;
+  font-weight: $font-semi-bold;
+  color: $color-purple;
+
+  @media only screen and (min-width: $media-tablet) {
+    font-size: $font-16;
+  }
+
+  @media only screen and (min-width: $media-desktop) {
+    font-size: $font-20;
+  }
+}
+
+.iconChevron {
+  width: 16px;
+  stroke-width: 2;
 }
 
 .menuButton {

@@ -10,6 +10,8 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
+  min?: number;
+  max?: number;
 }
 
 const Input = ({
@@ -20,6 +22,8 @@ const Input = ({
   placeholder = "",
   className = "",
   onKeyDown,
+  min,
+  max,
 }: InputProps) => (
   <input
     name={name}
@@ -29,6 +33,8 @@ const Input = ({
     type={type}
     placeholder={placeholder}
     className={classNames(styles.input, className)}
+    min={min}
+    max={max}
   />
 );
 
