@@ -10,7 +10,7 @@ interface TeacherProfileProps {
     name: string;
     image: string;
     about: string;
-    rating: number;
+    rating: number[];
     price: number;
     categories: string[];
     topics: string[];
@@ -40,7 +40,7 @@ const TeacherProfile = ({ teacher }: TeacherProfileProps) => {
       <div className={styles.infoWrapper}>
         <div>
           <span className={styles.name}>{teacher.name}</span>
-          <Rating rating={teacher.rating.toFixed(1).toString()} />
+          <Rating rating={teacher.rating} />
         </div>
         <span className={styles.price}>Price/h £{teacher.price}</span>
       </div>

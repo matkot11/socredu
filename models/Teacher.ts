@@ -10,10 +10,7 @@ const teacherSchema = new Schema({
     type: String,
     required: false,
   },
-  rating: {
-    type: Number,
-    required: true,
-  },
+  rating: [Number],
   categories: [String],
   topics: [String],
   price: {

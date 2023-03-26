@@ -3,7 +3,7 @@ export interface TeacherInterface {
   name: string;
   image: string;
   about: string;
-  rating: number;
+  rating: [];
   price: number;
   categories: string[];
 }

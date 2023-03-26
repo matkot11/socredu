@@ -24,7 +24,7 @@ interface CheckProfileProps {
     name: string;
     image: string;
     about: string;
-    rating: number;
+    rating: number[];
     price: number;
     categories: string[];
     topics: string[];

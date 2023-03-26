@@ -41,7 +41,7 @@ const TeacherCard = ({ teacher }: TeacherCardProps) => {
         <span className={styles.categories}>
           {getShortenText(getCategories())}
         </span>
-        <Rating rating={teacher.rating.toFixed(1)} />
+        <Rating rating={teacher.rating} />
         <span className={styles.name}>{getShortenText(teacher.name)}</span>
         <span className={styles.price}>£{teacher.price}/h</span>
       </div>

@@ -45,7 +45,7 @@ export const getServerSideProps = async () => {
     .sort({ rating: -1 })
     .limit(4);
 
-  const filteredTeachers = teachers.filter((teacher) => teacher.rating > 0);
+  const filteredTeachers = teachers.filter((teacher) => teacher.rating.length > 0);
 
   return {
     props: {

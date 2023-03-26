@@ -134,7 +134,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           image: lesson.student.image,
         },
         teacher: {
-          id: lesson.teacher.user._id.toString(),
+          id: lesson.teacher._id.toString(),
           name: lesson.teacher.user.name,
           email: lesson.student.email,
           image: lesson.teacher.user.image,
